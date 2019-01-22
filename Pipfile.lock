@@ -1,0 +1,54 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "89b715014ed1c897328ff67abc58b4aa1e87280524e1d27a3b022cbf8bf52905"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "0",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "4.15.0-43-generic",
+            "platform_system": "Linux",
+            "platform_version": "#46~16.04.1-Ubuntu SMP Fri Dec 7 13:31:08 UTC 2018",
+            "python_full_version": "2.7.12",
+            "python_version": "2.7",
+            "sys_platform": "linux2"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "rows": {
+            "hashes": [
+                "sha256:d767babf11d4eca44f3348d0b88fec0d8dd2b1da60813335735233997a19ce5e",
+                "sha256:966e2646e4b6a67ab59452b27053e26145c7b21439f85043b6214cc14958f878",
+                "sha256:a0af64b128f929500ffd1b45f04b64d4e69abaf33379ab9a5f76224c3b2d0788",
+                "sha256:22af506344a21d876274ba89fa5663e3c1b3e5976aec32196d5874c0b84486a3"
+            ],
+            "version": "==0.3.1"
+        },
+        "six": {
+            "hashes": [
+                "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
+                "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+            ],
+            "version": "==1.12.0"
+        },
+        "unicodecsv": {
+            "hashes": [
+                "sha256:018c08037d48649a0412063ff4eda26eaa81eff1546dbffa51fa5293276ff7fc"
+            ],
+            "version": "==0.14.1"
+        }
+    },
+    "develop": {}
+}
