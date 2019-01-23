@@ -13,3 +13,5 @@ pytest = "*"
 [packages]
 
 rows = "*"
+flask = "*"
+flask-pymongo = "*"
