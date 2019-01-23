@@ -8,13 +8,18 @@ def main():
 
     parser.add_argument('--log', type=str,  help='Caminho do rquivo com o log',
                         required=True)
+    parser.add_argument('--print', help='Mostra na tela o log depois do parser')
+
     arg = parser.parse_args()
 
     parser_log = ParsearLog(log_file=arg.log)
 
     parser_log.pre_parser()
 
-    parser_log.parsear()
+    resultado = parser_log.parsear()
+
+    if arg.print:
+        print(resultado)
 
 
 if __name__ == '__main__':

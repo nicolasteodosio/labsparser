@@ -1,9 +1,11 @@
 import rows
 import re
 
+from service.mongo import MongoService
+
 
 class ParsearLog:
-    def __init__(self, log_file, csv_file='samples/log.csv'):
+    def __init__(self, log_file, csv_file='parser/samples/log.csv'):
         self.log_file = log_file
         self.csv_file = csv_file
         self.games_count = 0
@@ -21,7 +23,7 @@ class ParsearLog:
 
     def pre_parser(self):
         file = open('{}'.format(self.log_file), 'r')
-        fit = open('samples/log.csv', 'w')
+        fit = open(self.csv_file, 'w')
         fit.write('event;info\n')
         for line in file.readlines():
             tata = line.split()
@@ -68,13 +70,15 @@ class ParsearLog:
             if data.event == 'ShutdownGame:':
                 self.finaliza_estrutura(games)
 
-        print(games)
+        self.salva_estrutura(games)
+        return games
 
     def finaliza_estrutura(self, games):
         self.add_players_zerados()
         games['game_{}'.format(self.games_count)] = {'players': self.players,
                                                      'total_kills': self.games_kill,
                                                      'kills': self.player_kills}
+
         return games
 
     def add_players_zerados(self):
@@ -94,3 +98,7 @@ class ParsearLog:
         self.games_kill = 0
         self.players = []
         self.player_kills = {}
+
+    @staticmethod
+    def salva_estrutura(games):
+        MongoService().salva(documento=games)
