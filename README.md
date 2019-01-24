@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/nicolasteodosio/labsparser.svg?branch=master)](https://travis-ci.org/nicolasteodosio/labsparser)
+
 ### Instalação ###
 * Clone o projeto `git clone git@github.com:nicolasteodosio/labsparser.git`
 * Projeto foi criando unsando python 3.6, então cria um virtualenv com python 3.6
