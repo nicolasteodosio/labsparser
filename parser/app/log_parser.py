@@ -1,7 +1,7 @@
 import rows
 import re
 
-from service.mongo import MongoService
+from parser.service.mongo import MongoService
 
 
 class ParsearLog:

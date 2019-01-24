@@ -2,11 +2,11 @@ from unittest import TestCase, mock
 from unittest.mock import MagicMock
 
 from parser.app.log_parser import ParsearLog
-from tests.utils import MockedData
+from parser.tests.utils import MockedData
 
 
 class TestParsearLog(TestCase):
-    @mock.patch('app.log_parser.rows.import_from_csv')
+    @mock.patch('parser.app.log_parser.rows.import_from_csv')
     def test_prepare_data_table(self, mocked_import_from_csv):
         mocked_import_from_csv.return_value = True
         parser = ParsearLog(log_file=MagicMock())
@@ -14,7 +14,7 @@ class TestParsearLog(TestCase):
         self.assertTrue(mocked_import_from_csv.called)
         self.assertTrue(teste)
 
-    @mock.patch('app.log_parser.rows.import_from_csv')
+    @mock.patch('parser.app.log_parser.rows.import_from_csv')
     def test_prepare_data_table_raise(self, mocked_import_from_csv):
         mocked_import_from_csv.side_effect = Exception
         parser = ParsearLog(log_file=MagicMock())
