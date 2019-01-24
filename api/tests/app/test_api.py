@@ -12,6 +12,11 @@ class GameLogTest(FlaskTest):
     def tearDown(self):
         mock.patch.stopall()
 
+    def test_mostra_game_logs_metodo_invalido(self):
+        resp = self.client.post(url_for('api.games'))
+
+        self.assertEqual(resp.status_code, 405)
+
     def test_mostra_game_logs_vazio(self):
         self.mongo.db.gamelog.find.return_value = {}
         resp = self.client.get(url_for('api.games'))
@@ -62,3 +67,8 @@ class GameLogTest(FlaskTest):
 
         self.assertEqual(resp.status_code, 500)
         self.assertEqual(resp.data.decode('utf-8'), '{"erro":""}\n')
+
+    def test_mostra_game_one_logs_metodo_invalido(self):
+        resp = self.client.post(url_for('api.games_one', id=1))
+
+        self.assertEqual(resp.status_code, 405)
