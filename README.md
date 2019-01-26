@@ -35,3 +35,22 @@
 * Para executar um teste específico `python run_tests.py -k nome_do_teste_ou_classe_do_teste`
    
 ### Observações ###
+Vou deixar aqui o motivo de algumas decisões nesse projeto.
+* Primeiramente minha opção pelo Mongo no parser, foi primeiro para praticar a implementação de um banco NOSQL,
+ e outro foi pra esse projeto ficar mais próximo de uma aplicação em produção, claro que eu poderia salvar o resultado
+ em um arquivo, que poderia subir para o S3 ou algo similar, ou até mesmo deixar só como print mesmo. Pra isso deixei a 
+ opção de "printar" o resultado caso queira, mas sempre salvando no mongo.
+* Outra coisa que gostaria de citar é o usa da biblioteca [rows](https://github.com/turicas/rows) , que além de ser 
+open source, que sempre gosto de utilizar projetos open source, é feito por um brasileiro o Turicas. 
+Soube desse projeto em uma palestra na python sudeste 2017. 
+* A escolha do `Flask` para a api, foi por ser um framework bem enxuto e de rápido desenvolvimento.
+ Considerei até usar outros como o django, mas descartei por causa de toda a estrutura qeu ele tem, 
+ e o Vibora que é um framework feito por um brasileiro também, 
+ mas descartei por não saber como um framework assincrono funcionaria com o mongo, 
+ já que o Flask tem uma integrção muito boa com o mongo.
+* Uma consideração sobre as view da api é que o tratamento de exceções que fiz não é o ideal. 
+Fiz de uma maneira onde não retorno a exceção em si , como resposta da view, e isso já garante uma certa segurança.
+Porém dificulta a resolução de bug, pois só acessando a máquina e ver os logs para descobrir o que aconteceu, 
+ou adicionar um sistema de capturar exceptions, como o `Sentry` ou o `Rollbar` . Uilizar um desses seria minha escolha.
+* Utilizei o `Travis`, pra fazer o CI, mas ele só está rodando os testes. 
+Faltando ele executar o build para o deploy, caso a aplicação estivesse em produção.
