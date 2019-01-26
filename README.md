@@ -20,13 +20,17 @@
     * Esse comando além de salvar no mongo ele faz um `print`do resultado da análise.
 
 ### Rodando a API ###
-* Execute o `docker-compose up -d` , que irá subir um MONGODB
-* Execute o comando `python api/wsgi.py` 
-* Aplicação estará rodando em: `http://localhost:9001`
-* `http://localhost:9001/api/gamelog/games`
+* Metodo 1:
+    * Execute o `docker-compose up -d mongo` , que irá subir um MONGODB
+    * Execute o comando `cd api` 
+    * Execute o comando `flask run` 
+* Metodo 2:
+    * Execute o `docker-compose up -d`
+* Aplicação estará rodando em: `http://localhost:5000`
+* `http://localhost:5000/api/gamelog/games`
     * Endpoint onde mostra a listagem de todos as partidas.
     * Só espera método `GET`
-* `http://localhost:9001/api/gamelog/games/<id>`
+* `http://localhost:5000/api/gamelog/games/<id>`
     * Endpoint onde mostra uma partida especificada pelo id.
     * Só espera método `GET`
     
