@@ -18,7 +18,7 @@ def games():
                     data.append({key: value})
         return jsonify(data)
     except Exception as e:
-        return jsonify({'erro': str(e)}), 500
+        return jsonify({'erro': 'Interno'}), 500
 
 
 @api_bp.route('/gamelog/games/<id>', methods=['GET'])
@@ -28,6 +28,6 @@ def games_one(id):
         for key, value in results.items():
             if key == 'game_{}'.format(id):
                 return jsonify({key: value})
-        return jsonify({'erro': '404'}), 404
+        return jsonify({'erro': 'Id not found'}), 404
     except Exception as e:
-        return jsonify({'erro': str(e)}), 500
+        return jsonify({'erro': 'Interno'}), 500

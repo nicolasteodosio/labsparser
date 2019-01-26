@@ -36,14 +36,14 @@ class GameLogTest(FlaskTest):
         resp = self.client.get(url_for('api.games'))
 
         self.assertEqual(resp.status_code, 500)
-        self.assertEqual(resp.data.decode('utf-8'), '{"erro":""}\n')
+        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"Interno"}\n')
 
     def test_mostra_game_one_logs_vazio(self):
         self.mongo.db.gamelog.find_one_or_404.return_value = {}
         resp = self.client.get(url_for('api.games_one', id=1))
 
         self.assertEqual(resp.status_code, 404)
-        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"404"}\n')
+        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"Id not found"}\n')
 
     def test_mostra_game_one_logs_encontra_um(self):
         self.mongo.db.gamelog.find_one_or_404.return_value = {"game_1": {"teste": "teste"},
@@ -59,14 +59,14 @@ class GameLogTest(FlaskTest):
         resp = self.client.get(url_for('api.games_one', id=1))
 
         self.assertEqual(resp.status_code, 404)
-        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"404"}\n')
+        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"Id not found"}\n')
 
     def test_mostra_game_one_logs_erro(self):
         self.mongo.db.gamelog.find_one_or_404.side_effect = Exception
         resp = self.client.get(url_for('api.games_one', id=1))
 
         self.assertEqual(resp.status_code, 500)
-        self.assertEqual(resp.data.decode('utf-8'), '{"erro":""}\n')
+        self.assertEqual(resp.data.decode('utf-8'), '{"erro":"Interno"}\n')
 
     def test_mostra_game_one_logs_metodo_invalido(self):
         resp = self.client.post(url_for('api.games_one', id=1))
