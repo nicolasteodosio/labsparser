@@ -8,4 +8,4 @@ import pytest
 os.environ['TEST'] = '1'
 args = ['-rsxX', '--tb=native'] + sys.argv[1:]
 
-sys.exit(pytest.main(args + ['api/tests/', 'parser/tests/']))
+sys.exit(pytest.main(args + ['tests/']))

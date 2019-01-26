@@ -2,7 +2,7 @@ from unittest import TestCase, mock
 from unittest.mock import MagicMock
 
 from parser.app.log_parser import ParsearLog
-from parser.tests.utils import MockedData
+from tests.utils import MockedData
 
 
 class TestParsearLog(TestCase):
