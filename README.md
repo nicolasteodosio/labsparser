@@ -23,7 +23,7 @@
 * Metodo 1:
     * Execute o `docker-compose up -d mongo` , que irá subir um MONGODB
     * Execute o comando `cd api` 
-    * Execute o comando `flask run` 
+    * Execute o comando `flask run --host=0.0.0.0` 
 * Metodo 2:
     * Execute o `docker-compose up -d`
 * Aplicação estará rodando em: `http://localhost:5000`
